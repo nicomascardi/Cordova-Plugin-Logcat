@@ -17,7 +17,8 @@ public class LogCat extends CordovaPlugin {
 	      throws JSONException {
 	    if (action.equals("sendLogs")) {
 			
-			
+				zLabsLogProcessor.exportLogsString();
+				
 				JSONObject json1 = args.getJSONObject(0);
 				
 				System.out.println("!!!!!!!!!!!!!!!!!!LOGCAT: " + json1);
