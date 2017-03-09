@@ -15,14 +15,17 @@ public class LogCat extends CordovaPlugin {
 	  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) 
 	      throws JSONException {
 	    if (action.equals("sendLogs")) {
-                        // save logcat in file
-				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-				System.out.println(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS));		
-                File outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-                        "logcat.txt");
+			
+			
+				JSONObject json1 = args.getJSONObject(0);
+				
+				System.out.println("!!!!!!!!!!!!!!!!!!LOGCAT: " + json1);
+				
+                // save logcat in file	
+                File outputFile = new File(Environment.getExternalStorageDirectory(),"logcat.txt");
                 try {
                     Runtime.getRuntime().exec(
-                            "logcat -f " + outputFile.getAbsolutePath());
+                            json1 + " " + outputFile.getAbsolutePath());
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
