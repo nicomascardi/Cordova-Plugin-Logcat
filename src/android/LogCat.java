@@ -13,13 +13,13 @@ public class LogCat extends CordovaPlugin {
 	protected void pluginInitialize() {
 	  }
 
-	  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) 
+	  public String execute(String action, JSONArray args, CallbackContext callbackContext) 
 	      throws JSONException {
 	    if (action.equals("sendLogs")) {
 			
 				zLabsLogProcessor logProc = new zLabsLogProcessor();
-				logProc.exportLogsString();
 				
+				/*
 				JSONObject json1 = args.getJSONObject(0);
 								
                 // save logcat in file	
@@ -31,10 +31,12 @@ public class LogCat extends CordovaPlugin {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-             return true;
+				*/
+             return logProc.exportLogsString();
+;
 	    }
           else{        
-	    return false;
+	    return null;
 	  }
       }
 }
