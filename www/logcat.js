@@ -1,6 +1,6 @@
 module.exports = {
-	sendLogs:function(successCB,failureCB){
-		cordova.exec(successCB, failureCB, "LogCat","sendLogs", []);
+	sendLogs:function(arg,successCB,failureCB){
+		cordova.exec(successCB, failureCB, "LogCat","sendLogs", [arg]);
 	}
 };
 
