@@ -18,7 +18,7 @@ public class LogCat extends CordovaPlugin {
                         // save logcat in file
 				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 				System.out.println(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS));		
-                File outputFile = new File(Environment.getExternalStorageDirectory(),
+                File outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
                         "logcat.txt");
                 try {
                     Runtime.getRuntime().exec(
