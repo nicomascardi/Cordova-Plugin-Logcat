@@ -23,7 +23,7 @@ public class LogCat extends CordovaPlugin {
                 File outputFile = new File(Environment.getExternalStorageDirectory(),"logcat.txt");
                 try {
                     Runtime.getRuntime().exec(
-                            json1 + " " + outputFile.getAbsolutePath());
+                            arg + " " + outputFile.getAbsolutePath());
                 } catch (IOException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
