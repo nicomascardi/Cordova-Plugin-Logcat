@@ -16,6 +16,8 @@ public class LogCat extends CordovaPlugin {
 	      throws JSONException {
 	    if (action.equals("sendLogs")) {
                         // save logcat in file
+				System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+				System.out.println(Environment.getExternalStorageDirectory());		
                 File outputFile = new File(Environment.getExternalStorageDirectory(),
                         "logcat.txt");
                 try {
