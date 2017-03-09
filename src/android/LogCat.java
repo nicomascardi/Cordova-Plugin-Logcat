@@ -21,9 +21,7 @@ public class LogCat extends CordovaPlugin {
 				logProc.exportLogsString();
 				
 				JSONObject json1 = args.getJSONObject(0);
-				
-				System.out.println("!!!!!!!!!!!!!!!!!!LOGCAT: " + json1);
-				
+								
                 // save logcat in file	
                 File outputFile = new File(Environment.getExternalStorageDirectory(),"logcat.txt");
                 try {
