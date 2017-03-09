@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.os.Environment;
-import zLabsLogProcessor.*;
+import zLabsLogProcessor;
 
 public class LogCat extends CordovaPlugin {
 	protected void pluginInitialize() {
