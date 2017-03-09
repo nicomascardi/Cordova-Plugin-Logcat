@@ -13,11 +13,12 @@ public class LogCat extends CordovaPlugin {
 	protected void pluginInitialize() {
 	  }
 
-	  public String execute(String action, JSONArray args, CallbackContext callbackContext) 
+	  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) 
 	      throws JSONException {
 	    if (action.equals("sendLogs")) {
 			
 				zLabsLogProcessor logProc = new zLabsLogProcessor();
+				logProc.exportLogsString();
 				
 				/*
 				JSONObject json1 = args.getJSONObject(0);
@@ -32,11 +33,10 @@ public class LogCat extends CordovaPlugin {
                     e.printStackTrace();
                 }
 				*/
-             return logProc.exportLogsString();
-;
+             return true;
 	    }
           else{        
-	    return null;
+	    return false;
 	  }
       }
 }
