@@ -20,7 +20,7 @@ public class LogCat extends CordovaPlugin {
 				JSONObject json1 = args.getJSONObject(0);
 			
 				zLabsLogProcessor logProc = new zLabsLogProcessor();
-				String log = logProc.exportLogsString(json1.get("logcat"));
+				String log = logProc.exportLogsString((String)json1.get("logcat"));
 				
 				callbackContext.success(log);
 				
