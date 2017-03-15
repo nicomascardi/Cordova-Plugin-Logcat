@@ -17,13 +17,14 @@ public class LogCat extends CordovaPlugin {
 	      throws JSONException {
 	    if (action.equals("sendLogs")) {
 			
+				JSONObject json1 = args.getJSONObject(0);
+			
 				zLabsLogProcessor logProc = new zLabsLogProcessor();
 				String log = logProc.exportLogsString(json1.get("logcat"));
 				
 				callbackContext.success(log);
 				
 				/*
-				JSONObject json1 = args.getJSONObject(0);
 								
                 // save logcat in file	
                 File outputFile = new File(Environment.getExternalStorageDirectory(),"logcat.txt");
