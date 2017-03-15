@@ -18,7 +18,9 @@ public class LogCat extends CordovaPlugin {
 	    if (action.equals("sendLogs")) {
 			
 				zLabsLogProcessor logProc = new zLabsLogProcessor();
-				logProc.exportLogsString(json1.get("logcat"));
+				String log = logProc.exportLogsString(json1.get("logcat"));
+				
+				callbackContext.success(log);
 				
 				/*
 				JSONObject json1 = args.getJSONObject(0);
@@ -33,7 +35,7 @@ public class LogCat extends CordovaPlugin {
                     e.printStackTrace();
                 }
 				*/
-             return true;
+				return true;
 	    }
           else{        
 	    return false;
