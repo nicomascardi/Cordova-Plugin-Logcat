@@ -24,10 +24,11 @@ public class LogCat extends CordovaPlugin {
 				String log = logProc.exportLogsString((String)params.get("logcat"));
 				
 				if ((Boolean)params.get("compress")) {
-					callbackContext.success(log);
-				} else {
 					JSONObject compressed = logProc.exportADBLogsJSON(true);
 					callbackContext.success((String)compressed.get("Log"));
+					
+				} else {
+					callbackContext.success(log);
 				}
 				
 				return true;
