@@ -17,29 +17,24 @@ public class LogCat extends CordovaPlugin {
 	      throws JSONException {
 	    if (action.equals("sendLogs")) {
 			
-				JSONObject json1 = args.getJSONObject(0);
-			
+				JSONObject params = args.getJSONObject(0);
+				
 				zLabsLogProcessor logProc = new zLabsLogProcessor();
-				logProc.exportLogsString((String)json1.get("logcat"));
 				
-				callbackContext.success(logProc.exportADBLogsJSON(true));
+				String log = logProc.exportLogsString((String)params.get("logcat"));
 				
-				/*
-								
-                // save logcat in file	
-                File outputFile = new File(Environment.getExternalStorageDirectory(),"logcat.txt");
-                try {
-                    Runtime.getRuntime().exec(
-                            json1.get("logcat") + " " + outputFile.getAbsolutePath());
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-				*/
+				if ((Boolean)params.get("compression")) {
+					callbackContext.success(log);
+				} else {
+					
+					JSONObject compressed = logProc.exportADBLogsJSON(true);
+					callbackContext.success(compressed.get("Log"));
+				}
+				
 				return true;
 	    }
-          else{        
-	    return false;
-	  }
+        else{
+			return false;
+		}
       }
 }
