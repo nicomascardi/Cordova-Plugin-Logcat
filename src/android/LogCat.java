@@ -21,16 +21,11 @@ public class LogCat extends CordovaPlugin {
 				
 				zLabsLogProcessor logProc = new zLabsLogProcessor();
 				
-				String log = logProc.exportLogsString((String)params.get("logcat"));
+				logProc.exportLogsString((String)params.get("logcat"));
 				
-				if ((Boolean)params.get("compress")) {
-					JSONObject compressed = logProc.exportADBLogsJSON(true);
-					
-					callbackContext.success(compressed.getJSONObject("zLabsJSONLogMsg").getString("Log"));
-					
-				} else {
-					callbackContext.success(log);
-				}
+				JSONObject logFinal = logProc.exportADBLogsJSON((Boolean)params.get("compress"));
+				
+				callbackContext.success(logFinal);
 				
 				return true;
 	    }
